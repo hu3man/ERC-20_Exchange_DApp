@@ -12,24 +12,24 @@ function tokens(n) {
 contract('EthSwap', (accounts) => {
   let token, ethSwap
 
-  before(async () => {
-    token = await Token.new()
-    ethSwap = await EthSwap.new()
-    // Transfer all tokens to EthSwap (1 million)
-    await token.transfer(ethSwap.address, tokens('1000000'))
-  })
+before(async () => {
+  token = await Token.new()
+  ethSwap = await EthSwap.new(token.address)
+  // Transfer all tokens to EthSwap (1 million)
+  await token.transfer(ethSwap.address, tokens('1000000'))
+})
 
-  describe('Token deployment', async () => {
+describe('Token deployment', async () => {
     it('contract has a name', async () => {
       const name = await token.name()
       assert.equal(name, 'DApp Token')
     })
   })
 
-  describe('EthSwap deployment', async () => {
+describe('EthSwap deployment', async () => {
     it('contract has a name', async () => {
       const name = await ethSwap.name()
-      assert.equal(name, 'EthSwap Instant Exchange')
+      assert.equal(name, 'ERC-20 Exchange')
     })
 
     it('contract has tokens', async () => {
@@ -37,5 +37,4 @@ contract('EthSwap', (accounts) => {
       assert.equal(balance.toString(), tokens('1000000'))
     })
   })
-
 })

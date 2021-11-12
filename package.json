@@ -1,8 +1,8 @@
 {
-  "name": "eth-marketplace",
+  "name": "xxx-change",
   "version": "0.1.0",
-  "description": "An Ethereum Marketplace",
-  "author": "gregory@dappuniversity.com",
+  "description": "ERC-20 Exchange",
+  "author": "houston@krohman.org",
   "dependencies": {
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",
